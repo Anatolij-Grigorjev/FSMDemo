@@ -14,6 +14,8 @@
 		942EE3F32BB85FBD00F44330 /* FSMDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE3F22BB85FBD00F44330 /* FSMDemoTests.swift */; };
 		942EE3FD2BB85FBD00F44330 /* FSMDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE3FC2BB85FBD00F44330 /* FSMDemoUITests.swift */; };
 		942EE3FF2BB85FBD00F44330 /* FSMDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE3FE2BB85FBD00F44330 /* FSMDemoUITestsLaunchTests.swift */; };
+		942EE40D2BB8600400F44330 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE40C2BB8600400F44330 /* State.swift */; };
+		942EE40F2BB8602F00F44330 /* FSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE40E2BB8602F00F44330 /* FSM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		942EE3F82BB85FBD00F44330 /* FSMDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSMDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		942EE3FC2BB85FBD00F44330 /* FSMDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSMDemoUITests.swift; sourceTree = "<group>"; };
 		942EE3FE2BB85FBD00F44330 /* FSMDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSMDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		942EE40C2BB8600400F44330 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		942EE40E2BB8602F00F44330 /* FSM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		942EE3E02BB85FBC00F44330 /* FSMDemo */ = {
 			isa = PBXGroup;
 			children = (
+				942EE40B2BB85FEE00F44330 /* Model */,
 				942EE3E12BB85FBC00F44330 /* FSMDemoApp.swift */,
 				942EE3E32BB85FBC00F44330 /* ContentView.swift */,
 				942EE3E52BB85FBD00F44330 /* Assets.xcassets */,
@@ -125,6 +130,15 @@
 				942EE3FE2BB85FBD00F44330 /* FSMDemoUITestsLaunchTests.swift */,
 			);
 			path = FSMDemoUITests;
+			sourceTree = "<group>";
+		};
+		942EE40B2BB85FEE00F44330 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				942EE40C2BB8600400F44330 /* State.swift */,
+				942EE40E2BB8602F00F44330 /* FSM.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +273,8 @@
 			files = (
 				942EE3E42BB85FBC00F44330 /* ContentView.swift in Sources */,
 				942EE3E22BB85FBC00F44330 /* FSMDemoApp.swift in Sources */,
+				942EE40F2BB8602F00F44330 /* FSM.swift in Sources */,
+				942EE40D2BB8600400F44330 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
