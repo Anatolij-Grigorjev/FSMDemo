@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+
+enum FSMErrors: Error {
+    case stateNotFound(withName: String)
+    case invalidTransition(toState: State)
+}
