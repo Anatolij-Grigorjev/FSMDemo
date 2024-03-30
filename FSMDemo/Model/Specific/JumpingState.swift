@@ -7,7 +7,7 @@
 
 import Foundation
 
-class JumpState: State {
+class JumpingState: State {
     
     static let DEFAULT_JUMP_HEIGHT = 8
     

@@ -16,10 +16,10 @@ class State: Hashable, Equatable {
     }
     
     static func == (lhs: State, rhs: State) -> Bool {
-        false
+        lhs.name == rhs.name
     }
     
     func hash(into hasher: inout Hasher) {
-        
+        hasher.combine(name)
     }
 }

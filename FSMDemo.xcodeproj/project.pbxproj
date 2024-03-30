@@ -16,7 +16,7 @@
 		942EE3FF2BB85FBD00F44330 /* FSMDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE3FE2BB85FBD00F44330 /* FSMDemoUITestsLaunchTests.swift */; };
 		942EE40D2BB8600400F44330 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE40C2BB8600400F44330 /* State.swift */; };
 		942EE40F2BB8602F00F44330 /* FSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE40E2BB8602F00F44330 /* FSM.swift */; };
-		942EE4122BB8639D00F44330 /* JumpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE4112BB8639D00F44330 /* JumpState.swift */; };
+		942EE4122BB8639D00F44330 /* JumpingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE4112BB8639D00F44330 /* JumpingState.swift */; };
 		942EE4142BB8669F00F44330 /* FSMErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE4132BB8669F00F44330 /* FSMErrors.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,7 @@
 		942EE3FE2BB85FBD00F44330 /* FSMDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSMDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		942EE40C2BB8600400F44330 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		942EE40E2BB8602F00F44330 /* FSM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSM.swift; sourceTree = "<group>"; };
-		942EE4112BB8639D00F44330 /* JumpState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpState.swift; sourceTree = "<group>"; };
+		942EE4112BB8639D00F44330 /* JumpingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpingState.swift; sourceTree = "<group>"; };
 		942EE4132BB8669F00F44330 /* FSMErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSMErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,7 +150,7 @@
 		942EE4102BB8637300F44330 /* Specific */ = {
 			isa = PBXGroup;
 			children = (
-				942EE4112BB8639D00F44330 /* JumpState.swift */,
+				942EE4112BB8639D00F44330 /* JumpingState.swift */,
 			);
 			path = Specific;
 			sourceTree = "<group>";
@@ -288,7 +288,7 @@
 				942EE3E42BB85FBC00F44330 /* ContentView.swift in Sources */,
 				942EE3E22BB85FBC00F44330 /* FSMDemoApp.swift in Sources */,
 				942EE40F2BB8602F00F44330 /* FSM.swift in Sources */,
-				942EE4122BB8639D00F44330 /* JumpState.swift in Sources */,
+				942EE4122BB8639D00F44330 /* JumpingState.swift in Sources */,
 				942EE40D2BB8600400F44330 /* State.swift in Sources */,
 				942EE4142BB8669F00F44330 /* FSMErrors.swift in Sources */,
 			);
