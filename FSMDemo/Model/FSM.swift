@@ -15,15 +15,15 @@ class FSM {
     private let nextStatesMap: Dictionary<State, State>
     private let allowedNextStatesMap: Dictionary<State, Array<State>>
     var currentState: State
-    var currentStateExpiresIn: Float?
+    private var currentStateExpiresAt: Date?
     
-    init() {
+    init(initialStateName: String) {
         self.states = FSM.buildStatesList()
         self.statesLookup = FSM.createStatesLookup(fromStates: states)
         self.nextStatesMap = FSM.buildNextStatesMap()
         self.allowedNextStatesMap = FSM.buildAllowedNextStatesMap()
-        self.currentState = statesLookup["Standing"]!
-        self.currentStateExpiresIn = nil
+        self.currentState = statesLookup[initialStateName]!
+        self.currentStateExpiresAt = nil
     }
     
     private static func buildStatesList() -> Array<State> {

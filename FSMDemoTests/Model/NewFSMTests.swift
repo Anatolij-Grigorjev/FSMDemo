@@ -10,21 +10,23 @@ import XCTest
 
 final class NewFSMTests: XCTestCase {
     
-    private let fsm: FSM = FSM()
-    
-    func newFsmDefaultStateIsStanding() {
+    func newFsmDefaultStateIsPassed() {
+        let fsm = FSM(initialStateName: "Standing")
         XCTAssertEqual(fsm.currentState, .standing)
     }
     
     func newFsmAllowedStatesFromStanding() {
+        let fsm = FSM(initialStateName: "Standing")
         XCTAssertEqual(fsm.allowedNextStates, [.walking, .jumping])
     }
     
     func newFsmStandingStateDoesNotExpire() {
+        let fsm = FSM(initialStateName: "Standing")
         XCTAssertEqual(fsm.currentStateExpiresIn, nil)
     }
     
     func newFsmStandingDoesNotHaveNextState() {
+        let fsm = FSM(initialStateName: "Standing")
         XCTAssertEqual(fsm.nextState, nil)
     }
 }
