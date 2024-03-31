@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum FSMErrors: Error {
+enum FSMErrors: Error, Equatable {
     case stateNotFound(withName: String)
     case invalidTransition(toState: State)
 }

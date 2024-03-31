@@ -26,6 +26,29 @@ class FSM {
         self.currentStateExpiresAt = nil
     }
     
+    public func setState(nextStateName: String) {
+        
+    }
+    
+    public func allowedNextStates() -> Array<State> {
+        return allowedNextStatesMap[currentState] ?? []
+    }
+    
+    public func currentStateExpiresIn() -> Float? {
+        guard let expryDate = self.currentStateExpiresAt else {
+            return nil
+        }
+        return Float(expryDate.timeIntervalSince1970 - Date.now.timeIntervalSince1970)
+    }
+    
+    public func nextState() -> State? {
+        return nextStatesMap[currentState] ?? nil
+    }
+    
+    public func currentJumpHeight() -> Int {
+        return (statesLookup["Jumping"]! as! JumpingState).jumpHeight
+    }
+    
     private static func buildStatesList() -> Array<State> {
         return [
             .standing,
@@ -33,19 +56,30 @@ class FSM {
             .running,
             .jumping,
             .falling,
-            .laying
+            .laying,
         ]
     }
     
     private static func createStatesLookup(fromStates: Array<State>) -> Dictionary<String, State> {
-        return Dictionary()
+        return Dictionary(uniqueKeysWithValues: fromStates.map { ($0.name, $0) })
     }
     
     private static func buildNextStatesMap() -> Dictionary<State, State> {
-        return Dictionary()
+        return Dictionary<State, State>(uniqueKeysWithValues: [
+            (.jumping, .falling),
+            (.falling, .laying),
+            (.laying, .standing),
+        ])
     }
     
     private static func buildAllowedNextStatesMap() -> Dictionary<State, Array<State>> {
-        return Dictionary()
+        return Dictionary(uniqueKeysWithValues: [
+            (.standing, [.walking, .running, .jumping]),
+            (.walking, [.standing, .running, .jumping]),
+            (.running, [.standing, .walking, .jumping]),
+            (.jumping, []),
+            (.falling, []),
+            (.laying, []),
+        ])
     }
 }

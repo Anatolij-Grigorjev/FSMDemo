@@ -17,16 +17,16 @@ final class NewFSMTests: XCTestCase {
     
     func newFsmAllowedStatesFromStanding() {
         let fsm = FSM(initialStateName: "Standing")
-        XCTAssertEqual(fsm.allowedNextStates, [.walking, .jumping])
+        XCTAssertEqual(fsm.allowedNextStates(), [.walking, .jumping])
     }
     
     func newFsmStandingStateDoesNotExpire() {
         let fsm = FSM(initialStateName: "Standing")
-        XCTAssertEqual(fsm.currentStateExpiresIn, nil)
+        XCTAssertEqual(fsm.currentStateExpiresIn(), nil)
     }
     
     func newFsmStandingDoesNotHaveNextState() {
         let fsm = FSM(initialStateName: "Standing")
-        XCTAssertEqual(fsm.nextState, nil)
+        XCTAssertEqual(fsm.nextState(), nil)
     }
 }
