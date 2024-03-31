@@ -15,6 +15,7 @@ class FSM {
     private let nextStatesMap: Dictionary<State, State>
     private let allowedNextStatesMap: Dictionary<State, Array<State>>
     var currentState: State
+    var currentStateExpiresIn: Float?
     
     init() {
         self.states = FSM.buildStatesList()
@@ -22,10 +23,18 @@ class FSM {
         self.nextStatesMap = FSM.buildNextStatesMap()
         self.allowedNextStatesMap = FSM.buildAllowedNextStatesMap()
         self.currentState = statesLookup["Standing"]!
+        self.currentStateExpiresIn = nil
     }
     
     private static func buildStatesList() -> Array<State> {
-        return []
+        return [
+            .standing,
+            .walking,
+            .running,
+            .jumping,
+            .falling,
+            .laying
+        ]
     }
     
     private static func createStatesLookup(fromStates: Array<State>) -> Dictionary<String, State> {

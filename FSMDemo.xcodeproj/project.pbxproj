@@ -18,6 +18,8 @@
 		942EE40F2BB8602F00F44330 /* FSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE40E2BB8602F00F44330 /* FSM.swift */; };
 		942EE4122BB8639D00F44330 /* JumpingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE4112BB8639D00F44330 /* JumpingState.swift */; };
 		942EE4142BB8669F00F44330 /* FSMErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE4132BB8669F00F44330 /* FSMErrors.swift */; };
+		942EE4172BB95BCE00F44330 /* NewFSMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE4162BB95BCE00F44330 /* NewFSMTests.swift */; };
+		942EE41B2BB95EFB00F44330 /* KnownStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EE41A2BB95EFB00F44330 /* KnownStates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		942EE40E2BB8602F00F44330 /* FSM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSM.swift; sourceTree = "<group>"; };
 		942EE4112BB8639D00F44330 /* JumpingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpingState.swift; sourceTree = "<group>"; };
 		942EE4132BB8669F00F44330 /* FSMErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSMErrors.swift; sourceTree = "<group>"; };
+		942EE4162BB95BCE00F44330 /* NewFSMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFSMTests.swift; sourceTree = "<group>"; };
+		942EE41A2BB95EFB00F44330 /* KnownStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownStates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 		942EE3F12BB85FBD00F44330 /* FSMDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				942EE4152BB95BBC00F44330 /* Model */,
 				942EE3F22BB85FBD00F44330 /* FSMDemoTests.swift */,
 			);
 			path = FSMDemoTests;
@@ -143,6 +148,7 @@
 				942EE40C2BB8600400F44330 /* State.swift */,
 				942EE40E2BB8602F00F44330 /* FSM.swift */,
 				942EE4132BB8669F00F44330 /* FSMErrors.swift */,
+				942EE41A2BB95EFB00F44330 /* KnownStates.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +159,14 @@
 				942EE4112BB8639D00F44330 /* JumpingState.swift */,
 			);
 			path = Specific;
+			sourceTree = "<group>";
+		};
+		942EE4152BB95BBC00F44330 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				942EE4162BB95BCE00F44330 /* NewFSMTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +305,7 @@
 				942EE4122BB8639D00F44330 /* JumpingState.swift in Sources */,
 				942EE40D2BB8600400F44330 /* State.swift in Sources */,
 				942EE4142BB8669F00F44330 /* FSMErrors.swift in Sources */,
+				942EE41B2BB95EFB00F44330 /* KnownStates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				942EE4172BB95BCE00F44330 /* NewFSMTests.swift in Sources */,
 				942EE3F32BB85FBD00F44330 /* FSMDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
