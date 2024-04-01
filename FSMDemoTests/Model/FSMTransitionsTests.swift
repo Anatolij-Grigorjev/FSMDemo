@@ -10,34 +10,34 @@ import XCTest
 
 final class FSMTransitionsTests: XCTestCase {
     
-    func fromStandingToWalking() {
+    func fromStandingToWalking() throws {
         let fsm = FSM(initialStateName: "Standing")
-        fsm.setState(nextStateName: "Walking")
+        try fsm.setState(nextStateName: "Walking")
         XCTAssertEqual(fsm.currentState, .walking)
-        XCTAssertEqual(fsm.allowedNextStates(), [.standing, .running, .jumping])
+        XCTAssertEqual(fsm.allowedNextStates, [.standing, .running, .jumping])
         XCTAssertEqual(fsm.currentStateExpiresIn(), nil)
-        XCTAssertEqual(fsm.nextState(), nil)
+        XCTAssertEqual(fsm.nextState, nil)
     }
     
-    func fromStandingToJumping() {
+    func fromStandingToJumping() throws {
         let fsm = FSM(initialStateName: "Standing")
-        fsm.setState(nextStateName: "Jumping")
+        try fsm.setState(nextStateName: "Jumping")
         XCTAssertEqual(fsm.currentState, .jumping)
-        XCTAssertEqual(fsm.allowedNextStates(), [])
-        XCTAssertEqual(fsm.currentStateExpiresIn(), Float(fsm.currentJumpHeight()) / 2)
-        XCTAssertEqual(fsm.nextState(), .falling)
+        XCTAssertEqual(fsm.allowedNextStates, [])
+        XCTAssertEqual(fsm.currentStateExpiresIn(), Float(fsm.currentJumpHeight) / 2)
+        XCTAssertEqual(fsm.nextState, .falling)
     }
     
     func fromStandingToUnknown() {
         let fsm = FSM(initialStateName: "Standing")
-        XCTAssertThrowsError(fsm.setState(nextStateName: "XXX")) {
+        XCTAssertThrowsError(try fsm.setState(nextStateName: "XXX")) {
             XCTAssertEqual($0 as? FSMErrors, .stateNotFound(withName: "XXX"))
         }
     }
     
     func fromStandingToInvalid() {
         let fsm = FSM(initialStateName: "Standing")
-        XCTAssertThrowsError(fsm.setState(nextStateName: "Laying")) {
+        XCTAssertThrowsError(try fsm.setState(nextStateName: "Laying")) {
             XCTAssertEqual($0 as? FSMErrors, .invalidTransition(toState: .laying))
         }
     }

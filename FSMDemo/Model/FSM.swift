@@ -30,15 +30,15 @@ class FSM {
         guard let nextState = statesLookup[nextStateName] else {
             throw FSMErrors.stateNotFound(withName: nextStateName)
         }
-        guard allowedNextStates().contains(nextState) else {
+        guard allowedNextStates.contains(nextState) else {
             throw FSMErrors.invalidTransition(toState: nextState)
         }
         self.currentState = nextState
         switch nextState {
             case .jumping:
-                self.currentStateExpiresAt = Date.now.advanced(by: Double(currentJumpHeight()) / 2.0)
+                self.currentStateExpiresAt = Date.now.advanced(by: Double(currentJumpHeight) / 2.0)
             case .falling:
-                self.currentStateExpiresAt = Date.now.advanced(by: Double(currentJumpHeight()) / 4.0)
+                self.currentStateExpiresAt = Date.now.advanced(by: Double(currentJumpHeight) / 4.0)
             case .laying:
                 self.currentStateExpiresAt = Date.now.advanced(by: Double(5.0))
             default:
@@ -46,8 +46,8 @@ class FSM {
         }
     }
     
-    public func allowedNextStates() -> Array<State> {
-        return allowedNextStatesMap[currentState] ?? []
+    public var allowedNextStates: Array<State> {
+        get { allowedNextStatesMap[currentState] ?? [] }
     }
     
     public func currentStateExpiresIn() -> Float? {
@@ -57,12 +57,12 @@ class FSM {
         return Float(expryDate.timeIntervalSince1970 - Date.now.timeIntervalSince1970)
     }
     
-    public func nextState() -> State? {
-        return nextStatesMap[currentState] ?? nil
+    public var nextState: State? {
+        get { nextStatesMap[currentState] ?? nil }
     }
     
-    public func currentJumpHeight() -> Int {
-        return (statesLookup["Jumping"]! as! JumpingState).jumpHeight
+    public var currentJumpHeight: Int {
+        get { (statesLookup["Jumping"]! as! JumpingState).jumpHeight }
     }
     
     private static func buildStatesList() -> Array<State> {
