@@ -26,8 +26,24 @@ class FSM {
         self.currentStateExpiresAt = nil
     }
     
-    public func setState(nextStateName: String) {
-        
+    public func setState(nextStateName: String) throws {
+        guard let nextState = statesLookup[nextStateName] else {
+            throw FSMErrors.stateNotFound(withName: nextStateName)
+        }
+        guard allowedNextStates().contains(nextState) else {
+            throw FSMErrors.invalidTransition(toState: nextState)
+        }
+        self.currentState = nextState
+        switch nextState {
+            case .jumping:
+                self.currentStateExpiresAt = Date.now.advanced(by: Double(currentJumpHeight()) / 2.0)
+            case .falling:
+                self.currentStateExpiresAt = Date.now.advanced(by: Double(currentJumpHeight()) / 4.0)
+            case .laying:
+                self.currentStateExpiresAt = Date.now.advanced(by: Double(5.0))
+            default:
+                self.currentStateExpiresAt = nil
+        }
     }
     
     public func allowedNextStates() -> Array<State> {
