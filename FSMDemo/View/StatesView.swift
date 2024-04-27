@@ -11,26 +11,41 @@ import SwiftUI
 struct StateButton: View {
     var body: some View {
         Button(
-            action: { print(stateName) },
+            action: { viewModel.statePicked(nextStateName: stateName) },
             label: { Text(stateName) }
-        ).buttonStyle(.borderedProminent)
+        )
+        .disabled(!isStateAvailable)
+        .buttonStyle(.borderedProminent)
         .controlSize(.large)
     }
     
     let stateName: String
+    let viewModel: FSMViewModel
+    let isStateAvailable: Bool
     
-    init(stateName: String) {
+    init(stateName: String, viewModel: FSMViewModel) {
         self.stateName = stateName
+        self.viewModel =  viewModel
+        self.isStateAvailable = viewModel.enabledStatesNames.contains(stateName)
     }
 }
 
 struct StatesView: View {
+    @ObservedObject var fsmViewModel: FSMViewModel
+    
+    private let gridConfig = [
+        GridItem(.fixed(100)), 
+        GridItem(.fixed(100))
+    ]
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("States:")
-            HStack(spacing: 20, content: {
-                ForEach(["1", "2", "3"], id: \.self) { text in StateButton(stateName: text) }
-            }).padding(.top)
+            LazyHGrid(rows: gridConfig, spacing: 20) {
+                ForEach(fsmViewModel.possibleStates(), id: \.self) { text in
+                    StateButton(stateName: text, viewModel: fsmViewModel)
+                }
+            }.padding(.top)
         }.padding()
         Divider()
     }

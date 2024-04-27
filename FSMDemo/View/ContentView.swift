@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var fsmViewModel: FSMViewModel = FSMViewModel()
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .topLeading) {
                 VStack(alignment: .leading) {
-                    StatesView()
-                    CurrentStateView()
-                    StatesParamsView()
+                    StatesView(fsmViewModel: fsmViewModel)
+                    CurrentStateView(fsmViewModel: fsmViewModel)
+                    StatesParamsView(fsmViewModel: fsmViewModel)
                 }
             }.frame(height: geometry.size.height, alignment: .topLeading)
         }

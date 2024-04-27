@@ -24,6 +24,7 @@
 		94C9ABB22BD3BF7900B3F7A6 /* StatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9ABB12BD3BF7900B3F7A6 /* StatesView.swift */; };
 		94C9ABB42BD3BFA100B3F7A6 /* CurrentStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9ABB32BD3BFA100B3F7A6 /* CurrentStateView.swift */; };
 		94C9ABB62BD3BFBC00B3F7A6 /* StatesParamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9ABB52BD3BFBC00B3F7A6 /* StatesParamsView.swift */; };
+		94C9ABBC2BDCEF2200B3F7A6 /* FSMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9ABBB2BDCEF2200B3F7A6 /* FSMViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		94C9ABB12BD3BF7900B3F7A6 /* StatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesView.swift; sourceTree = "<group>"; };
 		94C9ABB32BD3BFA100B3F7A6 /* CurrentStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStateView.swift; sourceTree = "<group>"; };
 		94C9ABB52BD3BFBC00B3F7A6 /* StatesParamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesParamsView.swift; sourceTree = "<group>"; };
+		94C9ABBB2BDCEF2200B3F7A6 /* FSMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSMViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		942EE3E02BB85FBC00F44330 /* FSMDemo */ = {
 			isa = PBXGroup;
 			children = (
+				94C9ABBA2BDCEF1400B3F7A6 /* ViewModel */,
 				94C9ABAE2BD3B93900B3F7A6 /* View */,
 				942EE40B2BB85FEE00F44330 /* Model */,
 				942EE3E12BB85FBC00F44330 /* FSMDemoApp.swift */,
@@ -187,6 +190,14 @@
 				94C9ABB52BD3BFBC00B3F7A6 /* StatesParamsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		94C9ABBA2BDCEF1400B3F7A6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				94C9ABBB2BDCEF2200B3F7A6 /* FSMViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +337,7 @@
 				942EE4122BB8639D00F44330 /* JumpingState.swift in Sources */,
 				942EE40D2BB8600400F44330 /* State.swift in Sources */,
 				942EE4142BB8669F00F44330 /* FSMErrors.swift in Sources */,
+				94C9ABBC2BDCEF2200B3F7A6 /* FSMViewModel.swift in Sources */,
 				942EE41B2BB95EFB00F44330 /* KnownStates.swift in Sources */,
 				94C9ABB62BD3BFBC00B3F7A6 /* StatesParamsView.swift in Sources */,
 				94C9ABB42BD3BFA100B3F7A6 /* CurrentStateView.swift in Sources */,

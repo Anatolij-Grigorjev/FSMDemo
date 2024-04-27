@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct StatesParamsView: View {
-    
+    @ObservedObject var fsmViewModel: FSMViewModel
     @SwiftUI.State var jumpHeight = "10.0"
     
     var body: some View {

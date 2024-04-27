@@ -46,6 +46,10 @@ class FSM {
         }
     }
     
+    public var allStates: Array<State> {
+        get { states }
+    }
+    
     public var allowedNextStates: Array<State> {
         get { allowedNextStatesMap[currentState] ?? [] }
     }
