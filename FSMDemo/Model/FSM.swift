@@ -46,6 +46,10 @@ class FSM {
         }
     }
     
+    public func adjustJumpHeight(newJumpHieght: Int) {
+        jumpingState.jumpHeight = newJumpHieght
+    }
+    
     public var allStates: Array<State> {
         get { states }
     }
@@ -66,7 +70,11 @@ class FSM {
     }
     
     public var currentJumpHeight: Int {
-        get { (statesLookup["Jumping"]! as! JumpingState).jumpHeight }
+        get { jumpingState.jumpHeight }
+    }
+    
+    private var jumpingState: JumpingState {
+        (statesLookup["Jumping"]! as! JumpingState)
     }
     
     private static func buildStatesList() -> Array<State> {
