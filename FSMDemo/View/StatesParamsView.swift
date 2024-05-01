@@ -19,11 +19,14 @@ struct StatesParamsView: View {
                 HStack {
                     TextField("Jump height", text: $localJumpHeightText)
                         .focused($jumpHeightFieldFocused)
-                    Button("Save") {
-                        fsmViewModel.setJumpHeight(localJumpHeightText)
-                        setViewState()
-                        jumpHeightFieldFocused = false
-                    }.buttonStyle(.borderedProminent)
+                    if (self.localJumpHeightText != fsmViewModel.currentJumpHeight) {
+                        Button("Save") {
+                            fsmViewModel.setJumpHeight(localJumpHeightText)
+                            setViewState()
+                            jumpHeightFieldFocused = false
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
                 }
             }
         }.contentMargins(0.0).scrollContentBackground(.hidden).onAppear {

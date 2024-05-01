@@ -14,6 +14,12 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack(alignment: .topLeading) {
                 VStack(alignment: .leading) {
+                    if (fsmViewModel.errorMessage != nil) {
+                        Label(
+                            fsmViewModel.errorMessage!, systemImage:"xmark.circle.fill"
+                        )
+                        .padding()
+                    }
                     StatesView(fsmViewModel: fsmViewModel)
                     CurrentStateView(fsmViewModel: fsmViewModel)
                     StatesParamsView(fsmViewModel: fsmViewModel)

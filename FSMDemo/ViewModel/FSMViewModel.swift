@@ -12,7 +12,6 @@ class FSMViewModel: ObservableObject {
     
     @Published var currentStateName: String = "<???>"
     @Published var nextStateName: String? = nil
-    @Published var stateExpiresIn: Float? = nil
     @Published var enabledStatesNames: Array<String> = []
     @Published var currentJumpHeight: String = "10"
     
@@ -40,10 +39,13 @@ class FSMViewModel: ObservableObject {
         readFSMState()
     }
     
+    func currentStateExpiresIn() -> Float? {
+        return fsm.currentStateExpiresIn()
+    }
+    
     fileprivate func readFSMState() {
         currentStateName = fsm.currentState.name
         nextStateName = fsm.nextState?.name
-        stateExpiresIn = fsm.currentStateExpiresIn()
         enabledStatesNames = fsm.allowedNextStates.map(\.name)
         currentJumpHeight = fsm.currentJumpHeight.formatted()
     }
