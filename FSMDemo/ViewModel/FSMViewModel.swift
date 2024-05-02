@@ -45,7 +45,7 @@ class FSMViewModel: ObservableObject {
     
     fileprivate func readFSMState() {
         currentStateName = fsm.currentState.name
-        nextStateName = fsm.nextState?.name
+        nextStateName = fsm.nextPlannedState?.name
         enabledStatesNames = fsm.allowedNextStates.map(\.name)
         currentJumpHeight = fsm.currentJumpHeight.formatted()
     }

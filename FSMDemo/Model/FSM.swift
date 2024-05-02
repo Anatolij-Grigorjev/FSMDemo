@@ -27,14 +27,14 @@ class FSM {
     }
     
     public func setState(nextStateName: String) throws {
-        guard let nextState = statesLookup[nextStateName] else {
+        guard let proposedNextState = statesLookup[nextStateName] else {
             throw FSMErrors.stateNotFound(withName: nextStateName)
         }
-        guard allowedNextStates.contains(nextState) else {
-            throw FSMErrors.invalidTransition(toState: nextState)
+        guard allowedNextStates.contains(proposedNextState) || nextPlannedState != nil else {
+            throw FSMErrors.invalidTransition(toState: proposedNextState)
         }
-        self.currentState = nextState
-        switch nextState {
+        self.currentState = proposedNextState
+        switch proposedNextState {
             case .jumping:
                 self.currentStateExpiresAt = Date.now.advanced(by: Double(currentJumpHeight) / 2.0)
             case .falling:
@@ -65,7 +65,7 @@ class FSM {
         return Float(expryDate.timeIntervalSince1970 - Date.now.timeIntervalSince1970)
     }
     
-    public var nextState: State? {
+    public var nextPlannedState: State? {
         get { nextStatesMap[currentState] ?? nil }
     }
     

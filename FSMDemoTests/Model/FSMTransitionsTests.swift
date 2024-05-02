@@ -16,7 +16,7 @@ final class FSMTransitionsTests: XCTestCase {
         XCTAssertEqual(fsm.currentState, .walking)
         XCTAssertEqual(fsm.allowedNextStates, [.standing, .running, .jumping])
         XCTAssertEqual(fsm.currentStateExpiresIn(), nil)
-        XCTAssertEqual(fsm.nextState, nil)
+        XCTAssertEqual(fsm.nextPlannedState, nil)
     }
     
     func fromStandingToJumping() throws {
@@ -25,7 +25,13 @@ final class FSMTransitionsTests: XCTestCase {
         XCTAssertEqual(fsm.currentState, .jumping)
         XCTAssertEqual(fsm.allowedNextStates, [])
         XCTAssertEqual(fsm.currentStateExpiresIn(), Float(fsm.currentJumpHeight) / 2)
-        XCTAssertEqual(fsm.nextState, .falling)
+        XCTAssertEqual(fsm.nextPlannedState, .falling)
+    }
+    
+    func fromJumpingToFalling() throws {
+        let fsm = FSM(initialStateName: "Jumping")
+        try fsm.setState(nextStateName: "Falling")
+        XCTAssertEqual(fsm.currentState, .falling)
     }
     
     func fromStandingToUnknown() {

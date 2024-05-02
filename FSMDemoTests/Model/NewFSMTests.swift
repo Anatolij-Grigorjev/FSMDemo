@@ -27,6 +27,6 @@ final class NewFSMTests: XCTestCase {
     
     func newFsmStandingDoesNotHaveNextState() {
         let fsm = FSM(initialStateName: "Standing")
-        XCTAssertEqual(fsm.nextState, nil)
+        XCTAssertEqual(fsm.nextPlannedState, nil)
     }
 }
